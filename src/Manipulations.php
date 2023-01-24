@@ -570,6 +570,18 @@ class Manipulations
 
     protected function validateManipulation(string $value, string $constantNamePrefix): bool
     {
+        if($constantNamePrefix === 'format'){
+            if($value === 'jpg' || $value === 'webp'){
+                return true;
+            }
+        }
+
+        if($constantNamePrefix === 'fit'){
+            if($value === 'crop'){
+                return true;
+            }
+        }
+        
         return in_array($value, $this->getValidManipulationOptions($constantNamePrefix));
     }
 
